@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 1</title>
+  </head>
+  <body>
+    <script>
+      //   let firstNumber = parseFloat(prompt("Enter a first number", "0"));
+      //   let secondNumber = parseFloat(prompt("Enter a second number", "0"));
+      //   let summary = firstNumber + secondNumber;
+      //   console.log(`${firstNumber} + ${secondNumber} = ${summary}`);
+      //   console.log(+prompt("") + +prompt(""));
+
+      let a = parseInt(prompt("Enter a first number", "2"));
+      let b = parseInt(prompt("Enter a second number", "4"));
+      let c = parseInt(prompt("Enter a third number", "1"));
+      let sqrtD = Math.sqrt(b ** 2 - 4 * a * c);
+      let x1 = (-b + sqrtD) / (2 * a);
+      let x2 = (-b - sqrtD) / (2 * a);
+      console.log(`x1 = ${x1} & x2 = ${x2}`);
+      const testX1 = a * x1 ** 2 + b * x1 + c;
+
+      const testX2 = a * x2 ** 2 + b * x2 + c;
+      console.log(testX1);
+      console.log(testX2);
+    </script>
+  </body>
+</html>
