@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 2</title>
+  </head>
+  <body>
+    <script>
+      //   let result = confirm("Are you age?");
+      //   console.log(result);
+      //   if (result) {
+      //     alert("ok!");
+      //   } else {
+      //     alert("Fooooo!");
+      //   }
+
+      //   let a = parseInt(prompt("Enter a first number", "2"));
+      //   let b = parseInt(prompt("Enter a second number", "4"));
+      //   let c = parseInt(prompt("Enter a third number", "1"));
+      //   let D = b ** 2 - 4 * a * c;
+      //   let x1;
+      //   let x2;
+      //   let x;
+      //   console.log(D);
+      //   if (D > 0) {
+      //     x1 = (-b + Math.sqrt(D)) / (2 * a);
+      //     x2 = (-b - Math.sqrt(D)) / (2 * a);
+      //     console.log(`x1 = ${x1} & x2 = ${x2}`);
+      //   } else if (D == 0) {
+      //     x = -((b / 2) * a);
+      //     console.log(`x = ${x}`);
+      //   } else {
+      //     console.log("D<0");
+      //   }
+
+      //   let random = Math.round((Math.random()) * 10);
+      //   if (prompt("?") == random) {
+      //     console.log("true");
+      //   } else if (prompt("?") == random) {
+      //     console.log("true");
+      //   } else if (prompt("?") == random) {
+      //     console.log("true");
+      //   } else {
+      //     console.log("false");
+      //   }
+      //   console.log(random);
+
+      // Домой
+      // let a = 5;
+      // let b = 7;
+      // a = b;
+      // console.log(a);
+      // console.log(b);
+
+      // let random = Math.round((Math.random()) * 10);
+      // let result = "Looser";
+      // for(let i =0; i<3; i++){
+      //     if(result == prompt()){
+      //         result = "Winner";
+      //         break;
+      //     }
+      // }
+      // alert(result);
+
+      // ("@" && ("gmail" || "mail" || "outlook") && ".com")
+
+      let email;
+      while (true) {
+        email = prompt("Enter email");
+        if (email === null) {
+          alert("Email input canceled");
+          break;
+        } else if (email.includes("@") && (email.includes("mail") || email.includes("outlook")) && email.includes(".com")) {
+          alert("Email verification succsessfull");
+          break;
+        } else {
+          alert("Email verification failed. Try again!");
+        }
+      }
+    </script>
+  </body>
+</html>
