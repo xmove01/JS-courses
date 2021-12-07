@@ -69,7 +69,7 @@
       let email;
       while (true) {
         email = prompt("Enter email");
-        if (email === null) {
+        if (!email && email !== "") {
           alert("Email input canceled");
           break;
         } else if (email.includes("@") && (email.includes("mail") || email.includes("outlook")) && email.includes(".com")) {

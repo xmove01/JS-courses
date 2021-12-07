@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW1 Task 2</title>
+  </head>
+  <body>
+    <h2>
+      №2 Написать приложение которое принимает от пользователя любую строку и заменяет все символы пробела в ней на случайное целое число в диапазоне от 0 до
+      длинны строки
+    </h2>
+    <script>
+      let userInput = prompt("Enter the word", "   asda hfhfh weewe  ghghgheeer   rr   ");
+      let output = "";
+      let random = Math.round(Math.random() * userInput.length);
+      console.log(userInput);
+      for (i = 0; i < userInput.length; i++) {
+        if (userInput[i] === " ") {
+          output = output + random;
+        } else {
+          output = output + userInput[i];
+        }
+      }
+      console.log(output);
+    </script>
+  </body>
+</html>

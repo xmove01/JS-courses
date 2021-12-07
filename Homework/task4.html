@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW1 Task 4</title>
+  </head>
+  <body>
+    <h2>
+      №4* Написать приложение в котором пользователь вводит любое число: <br />
+      - если ввел не число - запросить ввод еще раз; <br />
+      - если нажал отмена закончить работу <br />
+      и сгенерировать случайную строку заданной длинны
+    </h2>
+    <script>
+      let num;
+      let mystr = "";
+      let h;
+      while (true) {
+        num = prompt("Enter a number");
+        if (num && typeof +num === "number" && !isNaN(+num)) {
+          //   Если ввёл число
+          console.log("Great!");
+          break;
+        } else if (!num) {
+          //   Если нажал отмена закончить работу и сгенерировать случайную строку заданной длинны
+          for (i = 0; i < 9; i++) {
+            h = Math.round(10 + Math.random() * 25);
+            mystr = mystr + h.toString(36);
+          }
+          console.log(mystr);
+          break;
+        } else if (num && isNaN(+num)) {
+          //   если ввёл не число - запросить ввод еще раз
+          console.log("try again");
+          continue;
+        }
+      }
+    </script>
+  </body>
+</html>
