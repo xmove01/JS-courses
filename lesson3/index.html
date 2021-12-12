@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 3</title>
+  </head>
+  <body>
+    <script>
+      // 10 20 50
+      //       const userMoney = parseInt(prompt("Enter", 330));
+      //       const b10 = 10;
+      //       const b20 = 20;
+      //       const b50 = 50;
+      //       let count50 = Math.floor(userMoney / b50);
+      //       let count20 = Math.floor((userMoney - count50 * b50) / b20);
+      //       let count10 = Math.floor((userMoney - count50 * b50 - count20 * b20) / b10);
+      //       console.log(count50 + " " + count20 + " " + count10);
+      //       document.write(`<div style="
+      //     background-color: green;
+      //     width: 50px;
+      //     height: 50px;
+      // ">${count50}</div>`);
+      //       document.write(`<div style="
+      //     background-color: green;
+      //     width: 50px;
+      //     height: 50px;
+      // ">${count20}</div>`);
+      //       document.write(`<div style="
+      //     background-color: green;
+      //     width: 50px;
+      //     height: 50px;
+      // ">${count10}</div>`);
+
+      //   function getRandomColor() {
+      // return `rgb(${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)},${Math.round(Math.random() * 255)})`;
+
+      // let color = "rgb(";
+      // let rand;
+      // for (i = 0; i < 3; i++) {
+      //     rand = Math.round(Math.random() * 255);
+      //   if (i === 2) {
+      //     color = color + rand + ")";
+      //   } else {
+      //     color = color + rand + ",";
+      //   }
+      // }
+      // console.log(color);
+
+      // const blank = "rgb(X, X, X)";
+      // let color = "";
+      // for (i = 0; i < blank.length; i++) {
+      //   if (blank[i] === "X") {
+      //     color += Math.round(Math.random() * 255);
+      //   } else {
+      //     color += blank[i];
+      //   }
+      // }
+      // console.log(color);
+
+      //     let color = "#";
+      //     for (i = 0; i < 3; i++) {
+      //       let k = Math.round(Math.random() * 255).toString(16);
+      //       color += k.length !== 2 ? `0${k}` : k;
+      //     }
+
+      //     return color;
+      //   }
+
+      //   const COLOR = getRandomColor();
+      //   document.write(`<style> body{ background: ${COLOR}}</style>`);
+
+      function pow(number = 0, degree = 2) {
+        let x = number;
+        for (let i = 0; i < degree; i++) {
+          x *= number;
+        }
+        return x;
+      }
+      console.log(pow(3, 4));
+    </script>
+  </body>
+</html>

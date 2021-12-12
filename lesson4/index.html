@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesson 4</title>
+  </head>
+  <body>
+    <script>
+      //   const v = [];
+      //   let max = 0;
+      //   let avg = 0;
+
+      //   for (let i = 0; i < 10; i++) {
+      //     v[i] = Math.round(Math.random() * 10);
+      //   }
+      //   console.log(v);
+      //   for (let e of v) {
+      //     // if (e % 2 === 0) {
+      //     //   console.log(e);
+      //     // }
+      //     if (e > max) {
+      //       max = e;
+      //     }
+      //   }
+      //   console.log(max);
+      //   console.log(v[v.length - 1]);
+      //   for (let e of v) {
+      //     avg += e;
+      //   }
+      //   console.log(avg / v.length);
+
+      // Пользователь вводит любое целоечисло. создаем массив любой длинны заполненый числами от 0 до числа пользователя
+
+      let number = +prompt(" ?", "20");
+      let arr = [];
+      let arr2 = [];
+      let otherArr = [];
+
+      for (let i = 0; i < number; i++) {
+        arr.push(Math.round(Math.random() * number));
+      }
+      console.log(arr);
+      for (let e of arr) {
+        if (e % 2 === 0) {
+          arr2.push(e);
+        } else {
+          otherArr.push(e);
+        }
+      }
+      console.log(arr2);
+      console.log(otherArr);
+
+      function is2(arr) {
+        let bol = true;
+        arr.forEach((currentItem, index, self) => {
+          if (currentItem % 2 !== 0) {
+            return (bol = false);
+          }
+        });
+        return bol ? "Кратно двум" : "Не кратно двум";
+      }
+      console.log(is2(arr2));
+      console.log(is2(otherArr));
+      let test = [2, 2, 2, 12];
+      console.log(is2(test));
+    </script>
+  </body>
+</html>
