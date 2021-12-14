@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW2 Task1</title>
+  </head>
+  <body>
+    <script>
+      // 10 20 50
+      const userMoney = parseInt(prompt("Enter", 330));
+      const b10 = 10;
+      const b20 = 20;
+      const b50 = 50;
+      const fulldate = new Date();
+      let count50 = Math.floor(userMoney / b50);
+      let count20 = Math.floor((userMoney - count50 * b50) / b20);
+      let count10 = Math.floor((userMoney - count50 * b50 - count20 * b20) / b10);
+      console.log(count50 + " " + count20 + " " + count10);
+      document.write(`
+      <div style="width: 290px">
+      ============= BANK =============
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <p>Дата</p>
+          <p>${fulldate.getDate()}.${fulldate.getMonth()}.${fulldate.getFullYear()}</p>
+        </div>
+        <div>
+          <p>Время</p>
+          <p>${fulldate.getHours()}:${fulldate.getMinutes()}:${fulldate.getSeconds()}</p>
+        </div>
+        <div>
+          <p>Карта</p>
+          <p>4***********3976</p>
+        </div>
+      </div>
+      <div>
+        <p>Тип операции : Снятие наличных</p>
+        <p>Сумма операции: ${userMoney} UAH</p>
+        <p>Комиссия: ${userMoney * 0.05} UAH</p>
+        ============ SPASIBO ============
+      </div>
+    </div>`);
+    </script>
+  </body>
+</html>

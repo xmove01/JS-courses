@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW2 Task3</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // 5, 10, 20, 50, 100, 200
+      let userMoney = parseInt(prompt("Введите сумму выдачи наличных:", 330));
+      const userBalance = 1001;
+      const fulldate = new Date();
+      while (userMoney % 5 !== 0 || userMoney > userBalance) {
+        if (userMoney % 5 !== 0) {
+          alert("К сожалению банкомат не может выдать вам такую сумму. Введите сумму кратную 5!");
+        } else if (userMoney > userBalance) {
+          alert("Сумма вывода превышает баланс счета!");
+        }
+        userMoney = parseInt(prompt("Введите сумму выдачи наличных:", 330));
+      }
+      const b5 = 5;
+      const b10 = 10;
+      const b20 = 20;
+      const b50 = 50;
+      const b100 = 100;
+      const b200 = 200;
+      let count200 = Math.floor(userMoney / b200) > 3 ? 3 : Math.floor(userMoney / b200); // Ограничено количество купюр в банкомате до 3
+      let count100 = Math.floor((userMoney - count200 * b200) / b100);
+      let count50 = Math.floor((userMoney - count200 * b200 - count100 * b100) / b50);
+      let count20 = Math.floor((userMoney - count200 * b200 - count100 * b100 - count50 * b50) / b20);
+      let count10 = Math.floor((userMoney - count200 * b200 - count100 * b100 - count50 * b50 - count20 * b20) / b10);
+      let count5 = Math.floor((userMoney - count200 * b200 - count100 * b100 - count50 * b50 - count20 * b20 - count10 * b10) / b5);
+      document.write(`
+      <div>
+       <p>Купюр по 200: ${count200}</p>
+       <p>Купюр по 100: ${count100}</p>
+       <p>Купюр по 50: ${count50}</p>
+       <p>Купюр по 20: ${count20}</p>
+       <p>Купюр по 10: ${count10}</p>
+       <p>Купюр по 5: ${count5}</p>
+      </div>
+    `);
+      //   document.write(`<div style="
+      //       background-color: green;
+      //       width: 50px;
+      //       height: 50px;
+      //   ">${count50}</div>`);
+      //   document.write(`<div style="
+      //       background-color: green;
+      //       width: 50px;
+      //       height: 50px;
+      //   ">${count20}</div>`);
+      //   document.write(`<div style="
+      //       background-color: green;
+      //       width: 50px;
+      //       height: 50px;
+      //   ">${count10}</div>`);
+      document.write(`
+      <div style="width: 381px">
+      ============= BANK ==============
+      <div style="display: flex; justify-content: space-between">
+        <div>
+          <p>Дата</p>
+          <p>${fulldate.getDate()}.${fulldate.getMonth()}.${fulldate.getFullYear()}</p>
+        </div>
+        <div>
+          <p>Время</p>
+          <p>${fulldate.getHours()}:${fulldate.getMinutes()}:${fulldate.getSeconds()}</p>
+        </div>
+        <div>
+          <p>Карта</p>
+          <p>4***********3976</p>
+        </div>
+      </div>
+      <div>
+        <p>Тип операции : Снятие наличных</p>
+        <p>Сумма операции: ${userMoney} UAH</p>
+        <p>Комиссия: ${userMoney * 0.05} UAH</p>
+        ============ SPASIBO ============
+      </div>
+    </div>`);
+    </script>
+  </body>
+</html>
