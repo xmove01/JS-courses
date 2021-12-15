@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW2 Clock</title>
+    <style>
+      .clock {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: repeat(19, 1fr);
+        grid-template-rows: repeat(19, 1fr);
+        box-sizing: border-box;
+        width: 500px;
+        height: 500px;
+        border: 3px solid red;
+        border-radius: 50%;
+        position: relative;
+        font-size: 20px;
+        font-family: sans-serif;
+      }
+
+      .center {
+        width: 10px;
+        height: 10px;
+        background-color: blue;
+        border-radius: 50%;
+        position: absolute;
+        top: calc(50% - 10px);
+        left: calc(50% - 10px);
+        z-index: 2;
+      }
+
+      .seconds {
+        /* transform:rotate(${seconds}deg); */
+        transform-origin: bottom;
+        height: 200px;
+        width: 6px;
+        background-color: crimson;
+        position: absolute;
+        top: calc(50% - 205px);
+        left: calc(50% - 8px);
+        animation: arrowRotator 60s linear infinite;
+        animation-timing-function: steps(12, end);
+      }
+
+      .minutes {
+        /* transform:rotate(${minutes * 6}deg); */
+        transform-origin: bottom;
+        height: 150px;
+        width: 8px;
+        background-color: cadetblue;
+        position: absolute;
+        top: calc(50% - 155px);
+        left: calc(50% - 9px);
+        animation: arrowRotator 360s linear infinite;
+        animation-timing-function: steps(12, end);
+      }
+
+      .hours {
+        /* transform:rotate(${hours * 30}deg); */
+        transform-origin: bottom;
+        height: 100px;
+        width: 8px;
+        background-color: blueviolet;
+        position: absolute;
+        top: calc(50% - 105px);
+        left: calc(50% - 9px);
+        animation: arrowRotator 360s linear infinite;
+        animation-timing-function: steps(12, end);
+      }
+      .num12 {
+        grid-row: 1;
+        grid-column: 10;
+      }
+
+      .num1 {
+        grid-row: 3;
+        grid-column: 14;
+        justify-self: flex-end;
+      }
+
+      .num2 {
+        grid-row: 6;
+        grid-column: 17;
+      }
+
+      .num3 {
+        grid-row: 10;
+        grid-column: 19;
+        justify-self: flex-start;
+      }
+
+      .num4 {
+        grid-row: 14;
+        grid-column: 17;
+        justify-self: flex-end;
+      }
+
+      .num5 {
+        grid-row: 17;
+        grid-column: 14;
+        justify-self: flex-end;
+      }
+
+      .num6 {
+        grid-row: 19;
+        grid-column: 10;
+      }
+
+      .num7 {
+        grid-row: 17;
+        grid-column: 6;
+        justify-self: flex-start;
+      }
+
+      .num8 {
+        grid-row: 14;
+        grid-column: 3;
+        justify-self: flex-start;
+      }
+
+      .num9 {
+        grid-row: 10;
+        grid-column: 1;
+        justify-self: flex-end;
+      }
+
+      .num10 {
+        grid-row: 6;
+        grid-column: 3;
+        justify-self: flex-start;
+      }
+
+      .num11 {
+        grid-row: 3;
+        grid-column: 6;
+        justify-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <span class="num1">1</span>
+      <span class="num2">2</span>
+      <span class="num3">3</span>
+      <span class="num4">4</span>
+      <span class="num5">5</span>
+      <span class="num6">6</span>
+      <span class="num7">7</span>
+      <span class="num8">8</span>
+      <span class="num9">9</span>
+      <span class="num10">10</span>
+      <span class="num11">11</span>
+      <span class="num12">12</span>
+      <div class="center"></div>
+      <div class="seconds"></div>
+      <div class="minutes"></div>
+      <div class="hours"></div>
+    </div>
+
+    <!--  -->
+
+    <script>
+      const fullDate = new Date();
+
+      let minutes;
+      let seconds;
+      let hours;
+
+      minutes = fullDate.getMinutes();
+      seconds = fullDate.getSeconds();
+      hours = fullDate.getHours();
+
+      document.write(`
+        <style>
+            @keyframes seconds {
+                from {
+                    transform: rotate(${seconds * 6}deg);
+                }
+                
+                to {
+                    transform: rotate(${seconds * 6 + 360}deg);
+                }
+            }
+            @keyframes minutes {
+                from {
+                    transform: rotate(${minutes * 6}deg);
+                }
+                
+                to {
+                    transform: rotate(${minutes * 6 + 360}deg);
+                }
+            }
+            @keyframes hours {
+                from {
+                    transform: rotate(${hours * 30 + minutes / 2}deg);
+                }
+                
+                to {
+                    transform: rotate(${hours * 30 + minutes / 2 + 360}deg);
+                }
+            }
+
+                .seconds {
+                    animation: seconds 60s linear infinite;
+                }
+                .minutes {
+                    animation: minutes 3600s linear infinite;
+                }
+                .hours {
+                    animation: hours 43200s linear infinite;
+                }
+        </style>
+    `);
+    </script>
+  </body>
+</html>

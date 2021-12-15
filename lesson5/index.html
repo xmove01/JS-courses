@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 5</title>
+  </head>
+  <body>
+    <script>
+      let g = "";
+
+      g = "Hello world";
+
+      let mail1 = "my@gmail.com";
+      let mail2 = "my@ukr.net";
+      let mail3 = "my@mail.ru";
+
+      const checkMail = /^.+@(gmail|mail|ukr)\.(com|net|ru)$/g;
+
+      console.log(mail1.match(checkMail));
+      console.log(mail2.match(checkMail));
+      console.log(mail3.match(checkMail));
+    </script>
+  </body>
+</html>
