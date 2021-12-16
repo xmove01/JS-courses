@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HW2 Task4</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 50px;
+      }
+
+      .calendar {
+        margin: 0 auto;
+        width: 354px;
+        height: 404px;
+        border: 2px solid black;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+
+      .month {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      .days {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        border: 1px solid black;
+      }
+
+      .day {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        border: 1px solid black;
+      }
+      .dates {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .date {
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .today {
+        box-shadow: 0px 0px 0px 3px rgb(255 0 0) inset;
+        font-weight: bold;
+        color: red;
+        border: none;
+      }
+
+      .otherMonth {
+        background-color: #d9d9d9;
+        color: #434343;
+      }
+    </style>
+    <script>
+      let numberOfDays = 42; // Количество дней в календаре
+      let currentDate = new Date(prompt("Enter the date", "2015-10-15")); // Текущая дата
+      let month = currentDate.getMonth();
+      let year = currentDate.getFullYear();
+      let day = currentDate.getDay();
+      let date = currentDate.getDate();
+
+      const firstDateOfMonth = new Date(year, month, 1); // Первый день текущего месяца
+      const lastDateOfMonth = new Date(year, month + 1, 0); // Последний день текущего месяца
+      let datesInCurrentMonth = lastDateOfMonth.getDate() - firstDateOfMonth.getDate() + 1; // Количество дней в этом месяце
+      let datesInPrevMonth = firstDateOfMonth.getDay(); // Количество дней предыдущего месяца которые отображаются в календаре текущего месяца
+      let datesInNextMonth = numberOfDays - datesInCurrentMonth - datesInPrevMonth; // Количество дней следующего месяца которые отображаются в календаре текущего месяца
+
+      let lastDateOfPrevMonth = new Date(year, month, 0).getDate() - datesInPrevMonth + 1; // Первая дата предыдущего месяца которая будет записыватся в календарь
+
+      const months = ["January", "February", "March", "April", "May", "June", "Jule", "August", "September", "October", "November", "December"];
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    </script>
+  </head>
+  <body>
+    <div class="calendar">
+      <div class="month">
+        <script>
+          // Тут выводим месяц и год
+          document.write(`${months[month]} ${year}`);
+        </script>
+      </div>
+      <div class="days">
+        <script>
+          // Тут рисуем полоску с днями недели
+          for (let i = 0; i < 7; i++) {
+            if (i === day) {
+              // Проверка на сегодняшний день
+              document.write(`<div class="day today">${days[i]}</div>`);
+            } else {
+              document.write(`<div class="day">${days[i]}</div>`);
+            }
+          }
+        </script>
+      </div>
+      <div class="dates">
+        <script>
+          // Тут рисуем календарные даты
+          //
+          // Даты предыдущего месяца
+          for (let i = 0; i < datesInPrevMonth; i++) {
+            const k = lastDateOfPrevMonth + i;
+            document.write(`<div class="date otherMonth">${k}</div>`);
+          }
+          // Даты текущего месяца
+          for (let i = 0; i < datesInCurrentMonth; i++) {
+            const j = i + 1;
+            if (j === date) {
+              // Проверка на сегодняшний день
+              document.write(`<div class="date today">${j}</div>`);
+            } else {
+              document.write(`<div class="date">${j}</div>`);
+            }
+          }
+          // Даты следующего месяца
+          for (let i = 0; i < datesInNextMonth; i++) {
+            const j = i + 1;
+            document.write(`<div class="date otherMonth">${j}</div>`);
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

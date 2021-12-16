@@ -165,41 +165,54 @@
 
     <script>
       const fullDate = new Date();
-      const start = Date.now();
 
       let minutes;
       let seconds;
       let hours;
 
-      let timer = setInterval(function () {
-        // сколько времени прошло с начала анимации?
-        let timePassed = Date.now() - start;
-        console.log(`${timePassed} ${typeof timePassed}`);
-        if (timePassed >= 1000) {
-          clearInterval(timer); // закончить анимацию через 2 секунды
-          return;
-        }
-        // отрисовать анимацию на момент timePassed, прошедший с начала анимации
-        draw(timePassed);
-      }, 20);
+      minutes = fullDate.getMinutes();
+      seconds = fullDate.getSeconds();
+      hours = fullDate.getHours();
 
-      function draw(timePassed) {
-        minutes = timePassed * 60;
-        seconds = timePassed;
-        hours = timePassed * 3600;
-      }
-      console.log(`${typeof seconds} seconds`);
       document.write(`
         <style>
-            .seconds {
-                transform:rotate(${seconds}deg);
+            @keyframes seconds {
+                from {
+                    transform: rotate(${seconds * 6}deg);
+                }
+                
+                to {
+                    transform: rotate(${seconds * 6 + 360}deg);
+                }
             }
-            .minutes {
-                transform:rotate(${minutes * 6}deg);
+            @keyframes minutes {
+                from {
+                    transform: rotate(${minutes * 6}deg);
+                }
+                
+                to {
+                    transform: rotate(${minutes * 6 + 360}deg);
+                }
             }
-            .hours {
-                transform:rotate(${hours * 30}deg);
+            @keyframes hours {
+                from {
+                    transform: rotate(${hours * 30 + minutes / 2}deg);
+                }
+                
+                to {
+                    transform: rotate(${hours * 30 + minutes / 2 + 360}deg);
+                }
             }
+
+                .seconds {
+                    animation: seconds 60s linear infinite;
+                }
+                .minutes {
+                    animation: minutes 3600s linear infinite;
+                }
+                .hours {
+                    animation: hours 43200s linear infinite;
+                }
         </style>
     `);
     </script>
