@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 6</title>
+    <script src="./index.js" defer></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        padding-top: 50px;
+      }
+
+      .box {
+        margin: 0 auto;
+        border: 2px solid blue;
+        padding: 5px;
+        width: 815px;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: flex-start;
+      }
+
+      .element {
+        border: 1px solid blue;
+        margin: 5px;
+        width: 150px;
+        height: 150px;
+        background: url("./image.jpg");
+        object-fit: contain;
+      }
+
+      .empty {
+        margin: 5px;
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
