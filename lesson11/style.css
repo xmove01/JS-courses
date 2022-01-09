@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  height: 50px;
+  border: 2px solid black;
+}
+
+form * {
+  font-size: 32px;
+}
+
+[type="text"] {
+  width: 90%;
+  height: 100%;
+  border: none;
+  padding: 2px 5px;
+}
+
+[type="text"]:focus {
+  border: none;
+}
+
+[type="text"]:focus-visible {
+  border: none;
+}
+
+button {
+  height: 100%;
+  width: 10%;
+  border: none;
+  background-color: #fff;
+  border-left: 2px solid black;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pic {
+  padding: 5px;
+}
+
+.pic img {
+  height: 250px;
+}
